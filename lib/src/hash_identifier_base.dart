@@ -1,3 +1,4 @@
+/// Supported hashing algorithms
 enum Hash {
   CRC_16,
   CRC_16_CCITT,
@@ -269,6 +270,7 @@ enum Hash {
   PDF_1_4_1_6_Acrobat_5_8,
 }
 
+/// Names of the supported hashing algorithms
 Map<Hash, String> names = {
   Hash.CRC_16: r"CRC-16",
   Hash.CRC_16_CCITT: r"CRC-16-CCITT",
@@ -548,6 +550,7 @@ Map<Hash, String> names = {
   Hash.PDF_1_4_1_6_Acrobat_5_8: r"PDF 1.4 - 1.6 (Acrobat 5 - 8)",
 };
 
+/// Hashing algorithm details
 class HashInfo {
   final Hash id;
   final String hashcat;
@@ -562,6 +565,7 @@ class HashInfo {
   }
 }
 
+/// Hashing matcher set
 class Prototype {
   final RegExp exp;
   final List<HashInfo> modes;
@@ -569,6 +573,7 @@ class Prototype {
   const Prototype(this.exp, this.modes);
 }
 
+/// Returns the default set of hashing algorithms
 List<Prototype> getDefaultPrototypes() {
   return [
     Prototype(RegExp(r'^[a-f0-9]{4}$', caseSensitive: false), [
@@ -2114,10 +2119,12 @@ List<Prototype> getDefaultPrototypes() {
   ];
 }
 
+/// Returns the algorythm name given Hash
 String getName(Hash hash) {
   return names[hash];
 }
 
+/// Returns list of hashing alorithms possibly used to create the hash
 List<HashInfo> Identify(String text, List<Prototype> prototypes) {
   List<HashInfo> result = List<HashInfo>();
   prototypes.forEach((Prototype p) => {
