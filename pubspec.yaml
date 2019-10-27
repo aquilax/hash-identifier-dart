@@ -1,6 +1,6 @@
 name: hash_identifier
-description: Library for identifying different hashes
-version: 1.0.0
+description: Library for identifying hashing algorithm ported from python's hashid library.
+version: 1.0.2
 homepage: https://github.com/aquilax/hash-identifier-dart
 author: aquilax <aquilax@gmail.com>
 
