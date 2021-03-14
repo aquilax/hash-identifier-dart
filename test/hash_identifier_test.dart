@@ -3,19 +3,11 @@ import 'package:test/test.dart';
 
 void main() {
   group('Identify', () {
-    List<Prototype> prototypes;
-
-    setUp(() {
-      prototypes = getDefaultPrototypes();
-    });
-
     test('Identifies simple crc-16', () {
-      expect(Identify("abcd", prototypes).map((hm) => getName(hm.id)), equals([
-        'CRC-16',
-        'CRC-16-CCITT',
-        'FCS-16',
-        'Cisco Type 7'
-      ]));
+      var prototypes = getDefaultPrototypes();
+
+      expect(Identify('abcd', prototypes).map((hm) => getName(hm.id)),
+          equals(['CRC-16', 'CRC-16-CCITT', 'FCS-16', 'Cisco Type 7']));
     });
   });
 }
